@@ -12,6 +12,8 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    protected string $guard = 'user';
+
     /**
      * Display the login view.
      */
@@ -25,9 +27,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
+        $request->authenticate($this->guard);
         $request->session()->regenerate();
+        $request->session()->put([ 'guard' => $this->guard ]);
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -37,7 +39,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::guard($this->guard)->logout();
 
         $request->session()->invalidate();
 
