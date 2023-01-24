@@ -7,24 +7,25 @@
     <title>@yield('title')</title>
 
     <!-- Fonts -->
-    @vite('resources/fonts/material-icon/css/material-design-iconic-font.min.css')
+    @vite(['resources/fonts/material-icon/css/material-design-iconic-font.min.css'])
     @yield('font')
 
     <!-- Styles -->
-    @vite(['resources/css/bootstrap/bootstrap.css', 'resources/css/user/auth.css'])
+    @vite(['resources/css/app.css', 'resources/css/user/auth.css'])
     @yield('style')
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js', 'resources/js/bootstrap/bootstrap.js'])
+    @vite(['resources/js/_jquery/jquery-3.6.3.js', 'resources/js/app.js'])
     @yield('header_script')
 </head>
 <body class="antialiased">
+
+    <div class="pageLoading"></div>
     <div class="main">
         @yield('content')
     </div>
 
     <footer>
-        @vite('resources/js/jquery.min.js')
         @yield('footer_script')
     </footer>
 </body>

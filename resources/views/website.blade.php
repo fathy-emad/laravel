@@ -28,7 +28,13 @@
             @if (Route::has('user.login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ route('user.dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('user.logout') }}">
+                            @csrf
+                            <div class="form-group form-button ">
+                                <input type="submit" id="signup" class="btn btn-primary" value="logout"/>
+                            </div>
+                        </form>
                     @else
                         <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 

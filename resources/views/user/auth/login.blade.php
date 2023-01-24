@@ -21,7 +21,8 @@
 
                 <div class="signup-form">
                     <h2 class="form-title">Sign in</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form method="POST" class="register-form" id="login-form" action="{{ route('user.store.login') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
                             <input type="text" name="email" id="email" placeholder="Your Email"/>
@@ -31,8 +32,8 @@
                             <input type="password" name="password" id="password" placeholder="Password"/>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="remember_me" id="remember_me" class="agree-term" />
-                            <label for="remember_me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            <input type="checkbox" name="remember" id="remember" value="1" class="agree-term" />
+                            <label for="remember" class="label-agree-term"><span><span></span></span>Remember me</label>
                         </div>
                         <div class="form-group form-button">
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>

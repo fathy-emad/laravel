@@ -268,7 +268,7 @@ const getjQuery = () => {
     jQuery
   } = window;
 
-  if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+  if (jQuery && !document.body.hasAttribute('data-bs-no-_jquery')) {
     return jQuery;
   }
 
@@ -4964,4 +4964,4 @@ class Toast extends BaseComponent {
 defineJQueryPlugin(Toast);
 
 export { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip };
-//# sourceMappingURL=bootstrap.esm.js.map
+//# sourceMappingURL=_bootstrap.esm.js.map

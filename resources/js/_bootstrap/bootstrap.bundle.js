@@ -272,7 +272,7 @@
       jQuery
     } = window;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-bs-no-_jquery')) {
       return jQuery;
     }
 
@@ -6745,4 +6745,4 @@
   return index_umd;
 
 })));
-//# sourceMappingURL=bootstrap.bundle.js.map
+//# sourceMappingURL=_bootstrap.bundle.js.map

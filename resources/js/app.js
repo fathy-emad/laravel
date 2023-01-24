@@ -10,3 +10,8 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 
 Alpine.start();
+
+$(function (){
+    // $('.pageLoading').hide();
+    // $('.pageLoading + div').css('opacity', '1');
+});
