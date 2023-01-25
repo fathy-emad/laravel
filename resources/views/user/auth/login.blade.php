@@ -4,7 +4,13 @@
 
 @section('font') @endsection
 
-@section('style') @endsection
+@section('style')
+    <style>
+        .error-message {
+            color: darkred;
+        }
+    </style>
+@endsection
 
 @section('header_script') @endsection
 
@@ -16,7 +22,7 @@
             <div class="signup-content">
                 <div class="signup-image">
                     <figure><img src="{{ Vite::asset('resources/images/user/auth/signin-image.jpg') }}" alt="sing up image"></figure>
-                    <a href="#" class="signup-image-link">Create an account</a>
+                    <a href="{{ route('user.register') }}" class="signup-image-link">Create an account</a>
                 </div>
 
                 <div class="signup-form">
@@ -24,12 +30,14 @@
                     <form method="POST" class="register-form" id="login-form" action="{{ route('user.store.login') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="text" name="email" id="email" placeholder="Your Email"/>
+                            <label for="my-email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="my-email" value="{{ old('email') }}" placeholder="Your Email"/>
+                            @error('email') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
-                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="password" id="password" placeholder="Password"/>
+                            <label for="my-password"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="password" id="my-password" value="{{ old('password') }}" placeholder="Password"/>
+                            @error('password') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember" id="remember" value="1" class="agree-term" />

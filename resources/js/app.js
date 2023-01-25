@@ -12,6 +12,6 @@ window.Alpine = Alpine;
 Alpine.start();
 
 $(function (){
-    // $('.pageLoading').hide();
-    // $('.pageLoading + div').css('opacity', '1');
+    $('.pageLoading').hide();
+    $('.pageLoading + div').css('opacity', '1');
 });

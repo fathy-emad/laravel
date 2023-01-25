@@ -4,7 +4,13 @@
 
 @section('font') @endsection
 
-@section('style') @endsection
+@section('style')
+<style>
+    .error-message {
+        color: darkred;
+    }
+</style>
+@endsection
 
 @section('header_script') @endsection
 
@@ -18,24 +24,39 @@
                     <form method="POST" class="register-form" id="register-form" action="{{ route('user.store.register') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Your Name" required/>
+                            <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" placeholder="Your First Name"/>
+                            @error('first_name') <div class="error-message">{{ $message }}</div> @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name"><i class="zmdi zmdi-accounts-alt material-icons-name"></i></label>
+                            <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" placeholder="Your Last Name"/>
+                            @error('last_name') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="Your Email"/>
+                            @error('email') <div class="error-message">{{ $message }}</div> @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                            <input type="number" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Your Phone"/>
+                            @error('phone') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
                             <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="password" id="password" placeholder="Password" required/>
+                            <input type="password" name="password" id="password" placeholder="Password"/>
+                            @error('password') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
                             <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password" required/>
+                            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password"/>
+                            @error('password_confirmation') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            <input type="checkbox" name="agree-term" id="agree-term" value="1" placeholder="Repeat your password" class="agree-term"/>
+                            <label for="agree-term" class="label-agree-term">I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            @error('agree-term') <div class="error-message">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group form-button">
                             <input type="submit" id="signup" class="form-submit" value="Register"/>

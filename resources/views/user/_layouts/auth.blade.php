@@ -11,7 +11,7 @@
     @yield('font')
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/css/user/auth.css'])
+    @vite(['resources/css/_bootstrap/bootstrap.css', 'resources/css/app.css', 'resources/css/user/auth.css'])
     @yield('style')
 
     <!-- Scripts -->
